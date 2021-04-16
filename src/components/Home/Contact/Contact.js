@@ -2,10 +2,10 @@ import React from 'react';
 
 const Contact = () => {
     return (
-        <section className='container mt-5'>
+        <section style={{backgroundColor:'#F9F9F9'}} className=' mt-5'>
             <div className='text-center'>
-                <h6>Contact Us</h6>
-                <h1>Get in touch</h1>
+                <p className='text-secondary'>Contact Us</p>
+                <h2><span style={{backgroundColor:'#01FDB2', padding:'0px 5px'}}>Ge</span>t in touch</h2>
                 <p className="text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit. <br/> Voluptatibus incidunt dolores voluptas alias, pariatur asperiores!</p>
             </div>
             <div className='col-md-9 shadow p-3 mx-auto'>

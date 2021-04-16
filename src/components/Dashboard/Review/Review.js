@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
+import Sidebar from '../../Shared/Sidebar/Sidebar';
 
 const Review = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -31,10 +32,10 @@ const Review = () => {
 
     return (
         <div className='row container'>
-            <div className="col-md-2">
-                <h2>Sidebar</h2>
+            <div className="col-md-3">
+              <Sidebar></Sidebar>
             </div>
-            <div style={{backgroundColor:'#F4F7FC'}} className="col-md-10">
+            <div style={{backgroundColor:'#F4F7FC'}} className="col-md-9">
                 <h1>Review</h1>
                 <div className='mt-5'>
 

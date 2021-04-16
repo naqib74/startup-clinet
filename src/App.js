@@ -6,8 +6,8 @@ import {
 } from "react-router-dom";
 import Home from './components/Home/Home/Home';
 import Login from './components/Login/Login';
-import Review from './components/Home/Review/Review';
 import Admin from './components/Admin/Admin/Admin';
+import Dashboard from './components/Dashboard/Dashboard/Dashboard';
 
 function App() {
   return (
@@ -22,10 +22,10 @@ function App() {
        <Route path='/login'>
          <Login></Login>
        </Route>
-       <Route path='/review'>
-         <Review></Review>
+       <Route path='/dashboard'>
+        <Dashboard></Dashboard>
        </Route>
-       <Route path='/admin/service'>
+       <Route path='/admin'>
          <Admin></Admin>
        </Route>
       </Switch>

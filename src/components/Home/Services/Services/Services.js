@@ -1,41 +1,27 @@
-import React from 'react';
-import business from '../../../../images/business.jpg'
-import finance from '../../../../images/finance.jpg'
-import building from '../../../../images/building.jpg'
+import React, { useEffect, useState } from 'react';
 import ServiceCard from '../ServiceCard/ServiceCard';
 
 
-const services = [
-    {
-        image: business,
-        title: 'Business Consulting',
-        details: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut rem animi assumenda delectus culpa ipsam?'
-    },
-    {
-        image: finance,
-        title: 'Finance Consulting',
-        details: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut rem animi assumenda delectus culpa ipsam?'
-    },
-    {
-        image: building,
-        title: 'Building Consulting',
-        details: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut rem animi assumenda delectus culpa ipsam?'
-    },
-]
-
 const Services = () => {
+    const [services , setServices] =useState()
+    
+    useEffect( () =>{
+        fetch('http://localhost:5000/service')
+        .then(res => res.json())
+        .then(data =>setServices(data))
+    },[])
     return (
-        <div>
+        <div className='container'>
             <div className='text-center mt-5'>
-            <h2>Our Services</h2>
-            <h5>What We Do</h5>
+            <p className='text-secondary'>Our Services</p>
+            <h2><span style={{backgroundColor:'#01FDB2', padding:'0px 5px'}}>wh</span>at We Do</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut rem animi assumenda delectus culpa ipsam?</p>
             </div>
             <div className='d-flex justify-content-center'>
 
-                <div className="w-75 row mt-5 pt-5">
+                <div className="row mt-3 pt-5">
                     {
-                        services.map(service => <ServiceCard service={service}></ServiceCard>)
+                        services ?.map(service => <ServiceCard service={service} key={service._id}></ServiceCard>)
                     }
                 </div>
 

@@ -13,7 +13,7 @@ const Testimonial = () => {
         <section>
             <div className='text-center mt-5'>
                 <p className="text-secondary">Testimonials</p>
-                <h2>What client say about us</h2>
+                <h2><span style={{backgroundColor:'#01FDB2', padding:'0px 5px'}}>wh</span>at client say about us</h2>
             </div>
             <div className='d-flex justify-content-center'>
             <div className='row container mt-5 p-3'>
