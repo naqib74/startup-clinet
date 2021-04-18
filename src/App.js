@@ -8,9 +8,15 @@ import Home from './components/Home/Home/Home';
 import Login from './components/Login/Login';
 import Admin from './components/Admin/Admin/Admin';
 import Dashboard from './components/Dashboard/Dashboard/Dashboard';
+import { createContext, useState } from 'react';
+import PrivateRoute from './components/Login/PrivateRoute/PrivateRoute';
 
+export const UserContext =createContext()
 function App() {
+  const [loggedInUser , setLoggedInUser] =useState({})
   return (
+    <UserContext.Provider value ={[loggedInUser , setLoggedInUser]}>
+      <p>Email:{loggedInUser.email}</p>
     <Router>
       <Switch>
         <Route exact path='/'>
@@ -20,16 +26,18 @@ function App() {
           <Home></Home>
         </Route>
        <Route path='/login'>
+         
          <Login></Login>
        </Route>
-       <Route path='/dashboard'>
+       <PrivateRoute path='/dashboard'>
         <Dashboard></Dashboard>
-       </Route>
-       <Route path='/admin'>
+       </PrivateRoute>
+       <PrivateRoute path='/admin'>
          <Admin></Admin>
-       </Route>
+       </PrivateRoute>
       </Switch>
     </Router>
+    </UserContext.Provider>
   );
 }
 

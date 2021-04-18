@@ -51,7 +51,7 @@ const Specialty = () => {
            <div className='d-flex justify-content-center mt-5'>
            <div className="row container">
                 {
-                    specialtyData.map(specialty =><SpecialtyCard specialty={specialty}></SpecialtyCard>)
+                    specialtyData.map(specialty =><SpecialtyCard specialty={specialty} key={specialty.title}></SpecialtyCard>)
                 }
 
             </div>

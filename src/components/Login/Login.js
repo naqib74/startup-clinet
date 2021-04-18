@@ -1,20 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './FirebaseConfig';
 import icon from '../../images/google-icon.png'
-// import firebaseConfig from './FirebaseConfig';
-// import LoginBg from '../../../images/loginBg.png'
-// import { useHistory, useLocation } from 'react-router';
-// import { UserContext } from '../../../App';
+import { useHistory, useLocation } from 'react-router';
+import { UserContext } from '../../App';
+
 
 
 const Login = () => {
-    // const [loggedInUser, setLoggedInUser] =useContext(UserContext);
-    // const history = useHistory()
-    // const location =useLocation()
+    const [loggedInUser, setLoggedInUser] =useContext(UserContext);
+    const history = useHistory()
+    const location =useLocation()
 
-    // const { from } = location.state || { from: { pathname: "/" } };
+    const { from } = location.state || { from: { pathname: "/" } };
     if(firebase.apps.length === 0){
         firebase.initializeApp(firebaseConfig)
         
@@ -25,7 +24,8 @@ const Login = () => {
         firebase.auth().signInWithPopup(provider).then(function (result) {
           const { displayName, email } = result.user;
           const signedInUser = { name: displayName, email }
-        //   setLoggedInUser(signedInUser);
+          setLoggedInUser(signedInUser);
+          history.replace(from)
         //   storeAuthToken();
         }).catch(function (error) {
           const errorMessage = error.message;
@@ -59,10 +59,9 @@ const Login = () => {
             </div>
             <div className="from-group mt-5">
              
-              <button className="btn btn-success" onClick={handleGoogleSignIn}> <img style={{height:'30px',width:'30px',marginRight:'20px'}} src={icon} alt=""/>Google Sign in</button>
+              <button style={{ backgroundColor:'#251D58',color:'white'}} className="btn" onClick={handleGoogleSignIn}> <img style={{height:'30px',width:'30px',marginRight:'20px'}} src={icon} alt=""/>Google Sign in</button>
             </div>
           </div>
-        {/* </div> */}
       </div>
     );
 };

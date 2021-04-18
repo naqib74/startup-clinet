@@ -15,7 +15,7 @@ const AddService = () => {
             imageURL: imageURL
         }
         console.log(serviceData)
-        fetch('http://localhost:5000/addService',{
+        fetch('https://infinite-depths-81943.herokuapp.com/addService',{
             method:'POST',
             headers:{'Content-Type': 'application/json'},
             body:JSON.stringify(serviceData)
@@ -56,7 +56,7 @@ const AddService = () => {
                     </div>
                     <div className="form-group w-75">
                         <input type="file" id='file' onChange={handleImageUpload}/>
-                        <label htmlFor="file"><img src={upload}/> Upload image</label>
+                        <label className='upload-image' htmlFor="file"><img src={upload}/> Upload image</label>
                     </div>
                     
                     <input className= 'buttonStyle' type="submit" />
