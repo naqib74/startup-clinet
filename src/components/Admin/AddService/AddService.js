@@ -11,6 +11,7 @@ const AddService = () => {
     const onSubmit = data => {
         const serviceData = {
             title:data.name,
+            price:data.price,
             details: data.description,
             imageURL: imageURL
         }
@@ -50,6 +51,9 @@ const AddService = () => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-group w-75">
                         <input name="name" className="form-control" placeholder="Service name "  {...register("name")} />
+                    </div>
+                    <div className="form-group w-75">
+                        <input name="price" className="form-control" placeholder="Price "  {...register("price")} />
                     </div>
                     <div className="form-group w-75">
                         <textarea name="description" {...register("description")}  className="form-control" id="" cols="30" rows="8" placeholder="Description"></textarea>

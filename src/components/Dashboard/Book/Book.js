@@ -11,7 +11,7 @@ const Book = () => {
     console.log(id)
     const [selectedService, setSelectedService] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/service/' + id)
+        fetch(`https://infinite-depths-81943.herokuapp.com/service/${id}`)
             .then(res => res.json())
             .then(data => setSelectedService(data))
     }, [])
@@ -23,7 +23,7 @@ const Book = () => {
             service: data.service
         }
         console.log(orderData)
-        fetch('http://localhost:5000/order', {
+        fetch('https://infinite-depths-81943.herokuapp.com/order', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(orderData)
