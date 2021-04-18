@@ -12,7 +12,7 @@ const Payment = () => {
     return (
         <div>
              <Elements stripe={stripePromise}>
-         <SplitCardForm></SplitCardForm>
+         <SplitCardForm ></SplitCardForm>
         </Elements>
         </div>
     );

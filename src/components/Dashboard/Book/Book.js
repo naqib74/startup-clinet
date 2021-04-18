@@ -1,23 +1,65 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { UserContext } from '../../../App';
 import Payment from '../Payment/Payment';
+import { useForm } from "react-hook-form";
 
 const Book = () => {
-    const {id} =useParams('')
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext)
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { id } = useParams('')
     console.log(id)
-    const [selectedService , setSelectedService] =useState([])
-    useEffect(()=>{
+    const [selectedService, setSelectedService] = useState([])
+    useEffect(() => {
         fetch('http://localhost:5000/service/' + id)
-        .then(res => res.json())
-        .then(data =>setSelectedService(data))
-    },[])
+            .then(res => res.json())
+            .then(data => setSelectedService(data))
+    }, [])
+
+    const onSubmit = data => {
+        const orderData = {
+            name: data.name,
+            email: data.email,
+            service: data.service
+        }
+        console.log(orderData)
+        fetch('http://localhost:5000/order', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(orderData)
+
+        })
+            .then(res => console.log('server side response'))
+    };
+
+ 
     return (
-        <div className='text-center'>
-            <h1>This is book</h1>
-            <h2 className='text-center'></h2>
-            <div className="col-md-9">
-                <Payment></Payment>
+        <div  className='text-center'>
+            <div className="col-md-4">
+
             </div>
+            <div  className='col-md-8 '>
+                <div  className='d-flex justify-content-center'>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <div className="form-group">
+                            <input name="name" className="form-control" defaultValue={loggedInUser.name} placeholder="Service name "  {...register("name")} />
+                        </div>
+                        <div className="form-group">
+                            <input name="email" className="form-control" defaultValue={loggedInUser.email} placeholder="Service name "  {...register("email")} />
+                        </div>
+                        <div className="form-group">
+                            <input name="service" className="form-control" defaultValue={selectedService.title} placeholder="Service name "  {...register("service")} />
+                        </div>
+
+                        <input className='buttonStyle' type="submit" />
+                    </form>
+                </div>
+
+                <div>
+                    <Payment></Payment>
+                </div>
+            </div>
+
         </div>
     );
 };

@@ -11,8 +11,8 @@ const ServiceCard = ({service}) => {
     }
 
     const handleBooking =(product) =>{
-        history.push(`/dashboard/${service._id}`)
-        // console.log('add to cart',product)
+        history.push(`/dashboard/book/${service._id}`)
+      
     }
     return (
         <div style={cardStyle} className='col-md-3 text-center mx-3 mb-3 p-3'>

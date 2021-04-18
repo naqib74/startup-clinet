@@ -15,14 +15,13 @@ const Dashboard = () => {
             <Router>
                 <Sidebar></Sidebar>
                 <Switch>
-                    <Route path='/dashboard/book'>
+                    <Route path='/dashboard/book/:id'>
                         <Book></Book>
                     </Route>
                     <Route path='/dashboard/bookingList'>
                         <BookingList></BookingList>
                     </Route>
                     <Route path='/dashboard/review'>
-
                         <Review></Review>
                     </Route>
                 </Switch>
