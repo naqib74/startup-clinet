@@ -31,11 +31,11 @@ const Review = () => {
     }
 
     return (
-        <div className='row container'>
-            <div className="col-md-3">
+        <div className='container'>
+            {/* <div className="col-md-3">
               <Sidebar></Sidebar>
-            </div>
-            <div style={{backgroundColor:'#F4F7FC'}} className="col-md-9">
+            </div> */}
+            <div style={{backgroundColor:'#F4F7FC'}}>
                 <h1>Review</h1>
                 <div className='mt-5'>
 

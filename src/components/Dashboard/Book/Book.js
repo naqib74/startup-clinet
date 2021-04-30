@@ -38,7 +38,7 @@ const Book = () => {
             <div className="col-md-4">
 
             </div>
-            <div  className='col-md-8 '>
+            <div className='col-md-8 '>
                 <div  className='d-flex justify-content-center'>
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="form-group">

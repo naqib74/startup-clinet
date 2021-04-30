@@ -12,19 +12,28 @@ import Review from '../Review/Review';
 const Dashboard = () => {
     return (
         <div>
+
             <Router>
-                <Sidebar></Sidebar>
-                <Switch>
-                    <Route path='/dashboard/book/:id'>
-                        <Book></Book>
-                    </Route>
-                    <Route path='/dashboard/bookingList'>
-                        <BookingList></BookingList>
-                    </Route>
-                    <Route path='/dashboard/review'>
-                        <Review></Review>
-                    </Route>
-                </Switch>
+                <div className="row">
+                    <div className="col-md-3">
+                        <Sidebar></Sidebar>
+                    </div>
+                    <div className="col-md-9">
+                        <Switch>
+                            <Route exact path='/dashboard/book/:id'>
+                                <Book></Book>
+                            </Route>
+                            <Route path='/dashboard/bookingList'>
+                                <BookingList></BookingList>
+                            </Route>
+                            <Route path='/dashboard/review'>
+                                <Review></Review>
+                            </Route>
+                        </Switch>
+                    </div>
+                </div>
+
+
             </Router>
 
 
