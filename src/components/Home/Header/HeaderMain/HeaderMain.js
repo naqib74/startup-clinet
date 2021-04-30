@@ -1,10 +1,10 @@
 import React from 'react';
-import Navbar from '../Navbar/Navbar';
+import NavbarMenu from '../Navbar/NavbarMenu';
 
 const HeaderMain = () => {
     return (
         <div>
-            <Navbar></Navbar>
+           <NavbarMenu></NavbarMenu>
             <div className='content d-flex align-items-center justify-content-center mt-5 pt-5'>
                 <div>
                     <h1 className='text-center'>Top Class consulting help for <br /> grow up Business</h1>

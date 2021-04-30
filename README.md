@@ -1,6 +1,14 @@
 # Full-stack online startup consultant App
 We Provide Everything To Start Your Social Venture. Sign Up With Us! Take Your Business To Market. Get Funding & More.
 
+### `App Feature:`
+
+1. User can order services and check their previous order. \
+2.Admin can add services and manage orders. \
+3.Login with Google. \
+4.Stripe Payment Gateway facility.
+
+
 ### `Front-End technology use:`
 
 1.React \
